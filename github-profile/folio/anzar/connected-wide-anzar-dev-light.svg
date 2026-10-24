@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 372 108" width="372" height="108">
+  <line x1="186" y1="0" x2="186" y2="18" stroke="#d0d7de" stroke-width="1.5"/>
+  <rect x="4" y="18" width="364" height="86" rx="7" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.2"/>
+  <text x="20" y="46" fill="#1f2328" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="14.5">anzar.dev — Interactive Neovim Portfolio</text>
+  <text x="20" y="68" fill="#57606a" font-family="ui-monospace, monospace" font-size="11">Code Wall Intro · 3D Wheel · 28 Themes · ASCII Eye</text>
+  <text x="20" y="89" fill="#0969da" font-family="ui-monospace, monospace" font-size="11">Open ~/Projects in Editor →</text>
+</svg>

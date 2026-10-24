@@ -1,0 +1,554 @@
+// ── ai-agent-learning/backend/app/api/routes/site.py ──
+from __future__ import annotations
+
+from typing import Any
+
+from fastapi import APIRouter
+
+from app.content.agents import AGENTS
+from app.content.cheatsheet import CHEATSHEET, cheatsheet_groups
+from app.content.guide import (
+    CRAFT,
+    LOOP_STAGES,
+    MODEL_GUIDE,
+    CONFIG_SNIPPETS,
+    comparison_matrix,
+)
+from app.content.harness import (
+    CONTEXT_PLAYBOOK,
+    HARNESS_LAYERS,
+    HARNESS_PROJECTS,
+    ORCHESTRATORS,
+    PROTOCOLS,
+    SKILL_FORMAT,
+    SKILL_PACKAGES,
+)
+from app.content.models_hub import HUB_INTRO, MODEL_HUB
+from app.content.resources import GENERATED, RESOURCE_CATEGORIES, RESOURCES
+from app.content.security_lab import (
+    ATTACK_TAXONOMY,
+    DEFENCE_LAYERS,
+    DETECTION_SIGNATURES,
+    FRAMEWORKS,
+    PROMPT_LAB_PLAYBOOK,
+    RESEARCH_FINDINGS,
+    TEST_PLAYBOOK,
+    WHERE_TO_LOOK,
+)
+from app.content.walkthroughs import WALKTHROUGHS
+from app.providers.registry import CURATED_MODELS, PROVIDER_META, ProviderRegistry
+
+router = APIRouter(prefix="/site", tags=["site"])
+# Short alias so the catalogue is also reachable at /api/resources.
+resources_router = APIRouter(prefix="/resources", tags=["resources"])
+
+
+async def build_payload() -> dict[str, Any]:
+    """Everything the website renders, in one payload."""
+    registry = ProviderRegistry()
+    providers = []
+    for meta in PROVIDER_META:
+        providers.append(
+            {
+                "id": meta.id,
+                "label": meta.label,
+                "kind": meta.kind,
+                "tier": meta.tier,
+                "tags": meta.tags,
+                "note": meta.note,
+                "signup_url": meta.signup_url,
+                "requires_key": meta.requires_key,
+                "default_base_url": meta.default_base_url,
+                "env_key": meta.env_key,
+                "has_key": bool(await registry.resolve_key(meta.id)),
+            }
+        )
+
+    models = [
+        {
+            "id": m.id,
+            "name": m.name,
+            "provider": m.provider,
+            "provider_label": m.provider_label,
+            "description": m.description,
+            "context_window": m.context_window,
+            "free": m.free,
+            "requires_key": m.requires_key,
+        }
+        for m in CURATED_MODELS
+    ]
+
+    return {
+        "agents": AGENTS,
+        "walkthroughs": WALKTHROUGHS,
+        "cheatsheet": CHEATSHEET,
+        "cheatsheet_groups": cheatsheet_groups(),
+        "loop_stages": LOOP_STAGES,
+
+// ── ai-agent-learning/backend/app/core/config.py ──
+from __future__ import annotations
+
+from functools import lru_cache
+from pathlib import Path
+
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
+
+class Settings(BaseSettings):
+    model_config = SettingsConfigDict(
+        env_file=BASE_DIR / ".env",
+        env_file_encoding="utf-8",
+        extra="ignore",
+    )
+
+    amt_env: str = "development"
+    amt_debug: bool = True
+    amt_host: str = "127.0.0.1"
+    amt_port: int = 8010
+    amt_cors_origins: str = "http://localhost:5173,http://127.0.0.1:5173"
+
+    amt_rate_limit_requests: int = 240
+    amt_rate_limit_window_seconds: int = 60
+    amt_provider_timeout_seconds: int = 120
+
+    # ---- paid providers ----
+    openai_api_key: str = ""
+    anthropic_api_key: str = ""
+    xai_api_key: str = ""
+    mistral_api_key: str = ""
+    deepseek_api_key: str = ""
+    together_api_key: str = ""
+    fireworks_api_key: str = ""
+
+    # ---- free-tier providers ----
+    gemini_api_key: str = ""
+    groq_api_key: str = ""
+    cerebras_api_key: str = ""
+    openrouter_api_key: str = ""
+    opencode_zen_api_key: str = ""
+    nvidia_api_key: str = ""
+    zai_api_key: str = ""
+    siliconflow_api_key: str = ""
+    cloudflare_api_key: str = ""
+    custom_api_key: str = ""
+
+    # ---- base url overrides ----
+    openai_base_url: str = ""
+    xai_base_url: str = "https://api.x.ai/v1"
+    gemini_base_url: str = ""
+    groq_base_url: str = ""
+    cerebras_base_url: str = ""
+    openrouter_base_url: str = ""
+    opencode_zen_base_url: str = ""
+    nvidia_base_url: str = ""
+    zai_base_url: str = ""
+    siliconflow_base_url: str = ""
+    mistral_base_url: str = ""
+    deepseek_base_url: str = ""
+    together_base_url: str = ""
+    fireworks_base_url: str = ""
+    cloudflare_base_url: str = ""
+    ollama_base_url: str = "http://localhost:11434/v1"
+    lmstudio_base_url: str = "http://localhost:1234/v1"
+    custom_base_url: str = ""
+
+    @property
+    def cors_origins(self) -> list[str]:
+        return [o.strip() for o in self.amt_cors_origins.split(",") if o.strip()]
+
+    @property
+    def is_production(self) -> bool:
+        return self.amt_env.lower() == "production"
+
+    @property
+    def project_root(self) -> Path:
+        return BASE_DIR.parent
+
+
+@lru_cache
+def get_settings() -> Settings:
+    return Settings()
+
+// ── ZEXR/backend/alembic/env.py ──
+"""Alembic environment.
+
+The database URL always comes from application settings so migrations run
+against the same database as the app, in every environment.
+"""
+
+from __future__ import annotations
+
+import sys
+from logging.config import fileConfig
+from pathlib import Path
+
+from alembic import context
+from sqlalchemy import engine_from_config, pool
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from app.core.config import settings  # noqa: E402
+from app.db.base import Base  # noqa: E402
+from app import models  # noqa: E402,F401  (register every table)
+
+config = context.config
+if config.config_file_name is not None:
+    fileConfig(config.config_file_name)
+
+config.set_main_option("sqlalchemy.url", settings.database_url)
+
+target_metadata = Base.metadata
+
+
+def include_object(obj, name, type_, reflected, compare_to) -> bool:  # noqa: ANN001
+    return not name.startswith("sqlite_")
+
+
+def run_migrations_offline() -> None:
+    context.configure(
+        url=settings.database_url,
+        target_metadata=target_metadata,
+        literal_binds=True,
+        dialect_opts={"paramstyle": "named"},
+        compare_type=True,
+        render_as_batch=settings.is_sqlite,
+    )
+    with context.begin_transaction():
+        context.run_migrations()
+
+
+def run_migrations_online() -> None:
+    connectable = engine_from_config(
+        config.get_section(config.config_ini_section, {}),
+        prefix="sqlalchemy.",
+        poolclass=pool.NullPool,
+    )
+    with connectable.connect() as connection:
+        context.configure(
+            connection=connection,
+            target_metadata=target_metadata,
+            compare_type=True,
+            # SQLite cannot ALTER columns in place; batch mode rebuilds the table.
+            render_as_batch=settings.is_sqlite,
+            include_object=include_object,
+        )
+        with context.begin_transaction():
+            context.run_migrations()
+
+
+if context.is_offline_mode():
+    run_migrations_offline()
+else:
+    run_migrations_online()
+
+// ── nexus-ai/backend/app/api/routes/chat.py ──
+from __future__ import annotations
+
+from fastapi import APIRouter, Depends, Query
+from fastapi.responses import StreamingResponse
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from app.database.session import get_db
+from app.providers.registry import ProviderRegistry
+from app.schemas import AgentRunCreate, ChatRequest, FollowupRequest, RegenerateRequest, ResearchRequest
+from app.services import agent_service, chat_service, research_service
+
+router = APIRouter(tags=["chat"])
+
+
+@router.post("/chat/stream")
+async def chat_stream(req: ChatRequest, db: AsyncSession = Depends(get_db)):
+    registry = ProviderRegistry(db)
+
+    async def event_gen():
+        try:
+            async for chunk in chat_service.stream_chat(db, req, registry):
+                yield chunk
+        except Exception as exc:
+            import json
+
+            yield f"event: error\ndata: {json.dumps({'message': str(exc), 'code': 'stream_error'})}\n\n"
+            yield "event: done\ndata: {\"ok\": false}\n\n"
+
+    return StreamingResponse(
+        event_gen(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+            "X-Accel-Buffering": "no",
+        },
+    )
+
+
+@router.post("/chat/regenerate")
+async def regenerate(req: RegenerateRequest, db: AsyncSession = Depends(get_db)):
+    registry = ProviderRegistry(db)
+
+    async def event_gen():
+        try:
+            async for chunk in chat_service.regenerate_message(
+                db,
+                req.conversation_id,
+                req.message_id,
+                registry,
+                req.provider,
+                req.model,
+                req.mode,
+                req.web_search,
+            ):
+                yield chunk
+        except Exception as exc:
+            import json
+
+            yield f"event: error\ndata: {json.dumps({'message': str(exc), 'code': 'stream_error'})}\n\n"
+
+    return StreamingResponse(event_gen(), media_type="text/event-stream", headers={"Cache-Control": "no-cache"})
+
+
+@router.post("/chat/followups")
+async def chat_followups(req: FollowupRequest, db: AsyncSession = Depends(get_db)):
+    registry = ProviderRegistry(db)
+    suggestions = await chat_service.generate_followups(
+        db, req.conversation_id, req.message_id, registry, req.provider, req.model
+    )
+    return {"suggestions": suggestions}
+
+
+@router.get("/usage/summary")
+async def usage_summary(db: AsyncSession = Depends(get_db)):
+    return await chat_service.usage_summary(db)
+
+
+@router.post("/research/stream")
+async def research_stream(req: ResearchRequest, db: AsyncSession = Depends(get_db)):
+    registry = ProviderRegistry(db)
+
+    async def event_gen():
+        try:
+            async for chunk in research_service.run_research(db, req, registry):
+
+// ── nexus-ai/backend/app/api/routes/free_models.py ──
+from __future__ import annotations
+
+from typing import Any
+
+from fastapi import APIRouter, Depends
+from pydantic import BaseModel
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from app.database.session import get_db
+from app.providers.registry import ProviderRegistry
+from app.services.search_service import gather_search_sources
+
+router = APIRouter(prefix="/free-models", tags=["free-models"])
+
+# Curated catalog of places to get free AI model access.
+CATALOG: list[dict[str, Any]] = [
+    {
+        "id": "gemini",
+        "name": "Google AI Studio (Gemini)",
+        "tag": "Best free tier",
+        "free_tier": "Free: ~15 req/min, 1M tokens/day. No credit card.",
+        "models": ["gemini-3.8-flash", "gemini-3.5-flash", "gemini-flash-latest", "gemini-3.1-pro-preview"],
+        "signup_url": "https://aistudio.google.com/apikey",
+        "works_in_nexus": "Paste key into Settings ΓåÆ API Keys ΓåÆ Google Gemini, then pick any FREE Gemini model.",
+        "nexus_provider": "gemini",
+        "popular": True,
+    },
+    {
+        "id": "openrouter-free",
+        "name": "OpenRouter ΓÇö free models",
+        "tag": "$0 balance works",
+        "free_tier": "Hundreds of models with :free suffix. Rotate often ΓÇö availability changes daily.",
+        "models": ["deepseek/deepseek-chat-v3-0324:free", "meta-llama/llama-3.3-70b-instruct:free", "google/gemma-3-27b-it:free"],
+        "signup_url": "https://openrouter.ai/models?max_price=0",
+        "works_in_nexus": "Paste key into Settings ΓåÆ API Keys ΓåÆ OpenRouter, then type a :free model id.",
+        "nexus_provider": "openrouter",
+        "popular": True,
+    },
+    {
+        "id": "groq",
+        "name": "Groq",
+        "tag": "Blazing fast",
+        "free_tier": "Free developer tier: fast Llama/Gemma inference, generous RPM.",
+        "models": ["llama-3.3-70b-versatile", "gemma2-9b-it"],
+        "signup_url": "https://console.groq.com/keys",
+        "works_in_nexus": "Groq is OpenAI-compatible: Settings ΓåÆ API Keys ΓåÆ set OpenRouter base URL to https://api.groq.com/openai/v1 with the Groq key.",
+        "nexus_provider": "openrouter",
+        "popular": True,
+    },
+    {
+        "id": "mistral",
+        "name": "Mistral AI",
+        "tag": "Free tier",
+        "free_tier": "Free tier with rate limits: Mistral Small / Medium models.",
+        "models": ["mistral-small-latest", "open-mistral-nemo"],
+        "signup_url": "https://console.mistral.ai/api-keys",
+        "works_in_nexus": "Mistral is OpenAI-compatible: use the OpenRouter slot with base URL https://api.mistral.ai/v1.",
+        "nexus_provider": "openrouter",
+        "popular": True,
+    },
+    {
+        "id": "ollama",
+        "name": "Ollama (run locally)",
+        "tag": "100% free, offline",
+        "free_tier": "Unlimited local models. No key, no limits, fully private.",
+        "models": ["llama3.2", "qwen2.5-coder", "mistral", "gemma3"],
+        "signup_url": "https://ollama.com/download",
+        "works_in_nexus": "Install Ollama, run `ollama pull llama3.2`, then pick the built-in Ollama provider in Nexus.",
+        "nexus_provider": "ollama",
+        "popular": True,
+    },
+    {
+        "id": "huggingface",
+        "name": "Hugging Face Inference",
+        "tag": "Free serverless",
+        "free_tier": "Free serverless inference for many open models (rate-limited).",
+        "models": ["meta-llama/Llama-3.3-70B-Instruct", "Qwen/Qwen2.5-72B-Instruct"],
+        "signup_url": "https://huggingface.co/settings/tokens",
+        "works_in_nexus": "HF router is OpenAI-compatible: OpenRouter slot, base URL https://router.huggingface.co/v1.",
+        "nexus_provider": "openrouter",
+        "popular": False,
+    },
+    {
+        "id": "cloudflare",
+        "name": "Cloudflare Workers AI",
+
+// ── nexus/next.config.ts ──
+import type { NextConfig } from "next";
+
+/** One year: the filenames are content-hashed, so they can never go stale. */
+const IMMUTABLE = "public, max-age=31536000, immutable";
+
+const nextConfig: NextConfig = {
+  reactStrictMode: true,
+  poweredByHeader: false,
+  compress: true,
+
+  experimental: {
+    optimizePackageImports: ["lucide-react", "framer-motion", "recharts"],
+  },
+
+  images: {
+    // AVIF first with WebP fallback ΓÇö roughly 50-70% smaller than the source JPEG.
+    formats: ["image/avif", "image/webp"],
+    // Trim the breakpoint ladder: fewer widths means fewer cached variants and
+    // fewer wasted bytes on phones that never render a 3840px card.
+    deviceSizes: [384, 640, 828, 1080, 1440, 1920],
+    imageSizes: [48, 64, 96, 128, 256, 384],
+    // Every quality that any component actually requests. Next refuses to encode
+    // anything outside this list, so it is also the set of cached variants.
+    qualities: [55, 60],
+    minimumCacheTTL: 60 * 60 * 24 * 30,
+    remotePatterns: [
+      { protocol: "https", hostname: "picsum.photos" },
+      { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "cdn.discordapp.com" },
+      { protocol: "https", hostname: "avatars.githubusercontent.com" },
+    ],
+  },
+
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "DENY" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "X-DNS-Prefetch-Control", value: "on" },
+          { key: "X-Permitted-Cross-Domain-Policies", value: "none" },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
+          },
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains; preload",
+          },
+        ],
+      },
+
+      /* ---------------------------------------------------- hashed build output */
+      {
+        source: "/_next/static/:path*",
+        headers: [
+          { key: "Cache-Control", value: IMMUTABLE },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+        ],
+      },
+      {
+        source: "/_next/image",
+        headers: [{ key: "Cache-Control", value: IMMUTABLE }],
+      },
+      {
+        source: "/_next/data/:path*",
+        headers: [{ key: "Cache-Control", value: IMMUTABLE }],
+      },
+      {
+        // Self-hosted webfonts: content-hashed by next/font.
+        source: "/_next/static/media/:path*",
+        headers: [{ key: "Cache-Control", value: IMMUTABLE }],
+      },
+
+      /* --------------------------------------------------- public read APIs */
+      // Safe to cache at the edge: pure reads with no session dependency.
+      {
+        source: "/api/projects",
+        headers: [
+          { key: "Cache-Control", value: "public, s-maxage=30, stale-while-revalidate=120" },
+        ],
+      },
+      {
+
+// ── nexus/prisma.config.ts ──
+import { readFileSync } from "node:fs";
+import { defineConfig } from "prisma/config";
+
+/**
+ * Replaces the deprecated `package.json#prisma` block.
+ *
+ * Adding this file also switches off Prisma's implicit `.env` loading, so the
+ * local file is parsed here first. Real environment variables always win, which
+ * is what makes Vercel work: the platform injects `DATABASE_URL` and the rest
+ * directly and there is no `.env` file in the build.
+ */
+function loadLocalEnv() {
+  let contents: string;
+  try {
+    contents = readFileSync(".env", "utf8");
+  } catch {
+    return;
+  }
+
+  for (const line of contents.split(/\r?\n/)) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) continue;
+    const match = /^([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)$/.exec(trimmed);
+    if (!match) continue;
+    const key = match[1];
+    if (process.env[key] !== undefined) continue;
+    let value = match[2].trim();
+    if (
+      (value.startsWith('"') && value.endsWith('"')) ||
+      (value.startsWith("'") && value.endsWith("'"))
+    ) {
+      value = value.slice(1, -1);
+    }
+    process.env[key] = value;
+  }
+}
+
+loadLocalEnv();
+
+export default defineConfig({
+  schema: "prisma/schema.prisma",
+  migrations: {
+    seed: "tsx prisma/seed.ts",
+  },
+});

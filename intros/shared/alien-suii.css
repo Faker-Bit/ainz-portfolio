@@ -1,0 +1,376 @@
+/* Alien Bioluminescent Theme + emojicombos.com/ronaldo-ascii-art Live Animated Engine */
+:root {
+  --alien-neon: #39ff14;
+  --alien-cyan: #00f0ff;
+  --alien-gold: #ffe600;
+  --alien-plasma: #b026ff;
+  --alien-bg: rgba(2, 9, 5, 0.95);
+}
+
+body.alien-atmosphere::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9990;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(57, 255, 20, 0.08), transparent 55%),
+    radial-gradient(circle at 85% 85%, rgba(0, 240, 255, 0.06), transparent 45%),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 2px,
+      rgba(57, 255, 20, 0.015) 3px
+    );
+}
+
+.alien-hud-bar {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9996;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 14px;
+  border-radius: 5px;
+  border: 1px solid rgba(57, 255, 20, 0.55);
+  background: rgba(2, 12, 7, 0.92);
+  box-shadow:
+    0 0 24px rgba(57, 255, 20, 0.25),
+    inset 0 0 12px rgba(57, 255, 20, 0.1);
+  font: 600 11.5px/1 "Plex Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+  color: var(--alien-neon);
+  backdrop-filter: blur(10px);
+}
+
+.alien-hud-btn {
+  background: linear-gradient(180deg, rgba(57, 255, 20, 0.22), rgba(0, 240, 255, 0.12));
+  color: #eaffea;
+  border: 1px solid var(--alien-neon);
+  border-radius: 4px;
+  padding: 5px 12px;
+  font: 700 11.5px/1 "Plex Mono", ui-monospace, monospace;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 150ms ease;
+  text-shadow: 0 0 8px rgba(57, 255, 20, 0.8);
+  box-shadow: 0 0 12px rgba(57, 255, 20, 0.25);
+}
+
+.alien-hud-btn:hover {
+  background: var(--alien-neon);
+  color: #020805;
+  box-shadow: 0 0 24px var(--alien-neon), 0 0 40px var(--alien-cyan);
+  text-shadow: none;
+  transform: translateY(-1px);
+}
+
+.alien-hud-status {
+  color: var(--alien-cyan);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+}
+
+/* Theater-Scale Stage for emojicombos.com Cristiano Ronaldo ASCII Art */
+.suii-holo {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9995;
+  width: min(1100px, calc(100vw - 24px));
+  max-height: calc(100vh - 44px);
+  display: flex;
+  flex-direction: column;
+  border: 1.5px solid var(--alien-neon);
+  border-radius: 8px;
+  background: radial-gradient(circle at 50% 35%, rgba(6, 28, 15, 0.97), rgba(1, 6, 4, 0.99));
+  box-shadow:
+    0 0 60px rgba(57, 255, 20, 0.35),
+    0 0 140px rgba(0, 240, 255, 0.22),
+    inset 0 0 40px rgba(57, 255, 20, 0.12);
+  color: var(--alien-neon);
+  font-family: "Plex Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+  overflow: hidden;
+  backdrop-filter: blur(14px);
+  transition: opacity 220ms ease, transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.suii-holo.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -48%) scale(0.92);
+}
+
+.suii-holo-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 9px 14px;
+  background: linear-gradient(90deg, rgba(57, 255, 20, 0.16), rgba(0, 240, 255, 0.1), rgba(57, 255, 20, 0.16));
+  border-bottom: 1px solid rgba(57, 255, 20, 0.4);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+}
+
+.suii-holo-title {
+  color: #eaffea;
+  font-weight: 700;
+  text-shadow: 0 0 10px var(--alien-neon);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.suii-holo-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.suii-holo-controls button,
+.suii-tabs button {
+  background: rgba(2, 14, 8, 0.85);
+  border: 1px solid rgba(57, 255, 20, 0.5);
+  color: var(--alien-neon);
+  padding: 4px 9px;
+  border-radius: 4px;
+  font: inherit;
+  font-size: 10.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 120ms ease;
+}
+
+.suii-holo-controls button:hover,
+.suii-holo-controls button.is-active,
+.suii-tabs button:hover,
+.suii-tabs button.is-active {
+  background: var(--alien-neon);
+  color: #020805;
+  box-shadow: 0 0 14px var(--alien-neon);
+}
+
+.suii-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 7px 12px;
+  background: rgba(1, 10, 5, 0.9);
+  border-bottom: 1px solid rgba(57, 255, 20, 0.25);
+}
+
+.suii-stage-wrap {
+  position: relative;
+  flex: 1;
+  min-height: 470px;
+  max-height: calc(100vh - 175px);
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 18px;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(57, 255, 20, 0.14), transparent 65%),
+    #010603;
+}
+
+/* Holographic laser sweep & stadium spotlights behind the ASCII picture */
+.suii-stage-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(57, 255, 20, 0.09) 48%,
+      rgba(0, 240, 255, 0.18) 50%,
+      rgba(57, 255, 20, 0.09) 52%,
+      transparent 100%
+    );
+  background-size: 100% 200%;
+  animation: suiiLaserScan 3.2s linear infinite;
+}
+
+@keyframes suiiLaserScan {
+  0% { background-position: 0% -100%; }
+  100% { background-position: 0% 200%; }
+}
+
+.suii-braille-pre {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI Symbol", "Apple Symbols", "Noto Sans Symbols 2", "Cascadia Mono", "Consolas", monospace;
+  font-size: 11.5px;
+  line-height: 1.04;
+  letter-spacing: 0px;
+  white-space: pre;
+  text-align: center;
+  color: var(--alien-neon);
+  text-shadow:
+    0 0 8px rgba(57, 255, 20, 0.65),
+    0 0 18px rgba(0, 240, 255, 0.25);
+  user-select: text;
+  transition: transform 150ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, contents;
+}
+
+.suii-row {
+  display: block;
+  will-change: transform, color;
+}
+
+.suii-row.is-wave-crest {
+  color: #e8fff0;
+  text-shadow:
+    0 0 10px #39ff14,
+    0 0 22px #00f0ff;
+}
+
+.suii-row.is-wave-sub {
+  color: #00f0ff;
+  text-shadow:
+    0 0 8px #00f0ff,
+    0 0 16px #39ff14;
+}
+
+.suii-row.is-jersey-gold {
+  color: #ffe600;
+  text-shadow:
+    0 0 10px #ffe600,
+    0 0 22px #39ff14;
+}
+
+.suii-row.is-banner-glow {
+  color: #00f0ff;
+  text-shadow:
+    0 0 12px #00f0ff,
+    0 0 26px #39ff14;
+}
+
+.suii-row.is-banner-flash {
+  color: #ffe600;
+  text-shadow:
+    0 0 14px #ffe600,
+    0 0 28px #00f0ff;
+}
+
+.suii-holo.is-shockwave {
+  border-color: #ffffff;
+  box-shadow:
+    0 0 90px rgba(57, 255, 20, 0.9),
+    0 0 180px rgba(0, 240, 255, 0.7),
+    inset 0 0 60px rgba(57, 255, 20, 0.35);
+  animation: suiiShake 440ms cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+.suii-holo.is-shockwave .suii-braille-pre {
+  color: #f2fff4;
+  text-shadow:
+    0 0 10px #39ff14,
+    0 0 24px #00f0ff,
+    0 0 42px #39ff14;
+}
+
+.suii-holo-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 14px;
+  border-top: 1px solid rgba(57, 255, 20, 0.35);
+  background: rgba(1, 8, 4, 0.94);
+  font-size: 11px;
+  color: var(--alien-cyan);
+}
+
+/* Inline player inside /site/ CR7-SIUUU-ASCII tab */
+.suii-inline-card {
+  margin: 12px 14px 18px 42px;
+  border: 1.5px solid var(--alien-neon);
+  border-radius: 6px;
+  background: radial-gradient(circle at 50% 45%, rgba(6, 28, 15, 0.95), #010603);
+  box-shadow: 0 0 28px rgba(57, 255, 20, 0.2);
+  overflow: hidden;
+  position: relative;
+}
+
+.suii-inline-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 7px 10px;
+  background: rgba(57, 255, 20, 0.12);
+  border-bottom: 1px solid rgba(57, 255, 20, 0.35);
+}
+
+.suii-inline-bar button {
+  background: #031409;
+  border: 1px solid rgba(57, 255, 20, 0.55);
+  color: var(--alien-neon);
+  padding: 3px 8px;
+  border-radius: 3px;
+  font: 600 10px "Plex Mono", monospace;
+  cursor: pointer;
+}
+
+.suii-inline-bar button:hover,
+.suii-inline-bar button.is-active {
+  background: var(--alien-neon);
+  color: #010603;
+}
+
+.suii-inline-pre {
+  margin: 0;
+  padding: 14px 10px;
+  font-family: "Segoe UI Symbol", "Apple Symbols", "Noto Sans Symbols 2", "Cascadia Mono", "Consolas", monospace;
+  font-size: 10.5px;
+  line-height: 1.04;
+  letter-spacing: 0px;
+  white-space: pre;
+  overflow-x: auto;
+  text-align: center;
+  color: var(--alien-neon);
+  text-shadow: 0 0 8px rgba(57, 255, 20, 0.55);
+  will-change: transform, contents;
+}
+
+@keyframes suiiShake {
+  0%, 100% { transform: translate(-50%, -50%); }
+  14% { transform: translate(calc(-50% - 10px), calc(-50% - 7px)) rotate(-0.6deg); }
+  28% { transform: translate(calc(-50% + 10px), calc(-50% + 6px)) rotate(0.6deg); }
+  42% { transform: translate(calc(-50% - 8px), calc(-50% + 5px)) rotate(-0.4deg); }
+  58% { transform: translate(calc(-50% + 7px), calc(-50% - 5px)) rotate(0.4deg); }
+  75% { transform: translate(calc(-50% - 4px), calc(-50% + 3px)); }
+}
+
+@media (max-width: 720px) {
+  .alien-hud-bar {
+    top: auto;
+    bottom: 62px;
+    padding: 5px 10px;
+  }
+  .suii-braille-pre {
+    font-size: 7.5px;
+  }
+  .suii-inline-card {
+    margin-left: 8px;
+  }
+  .suii-inline-pre {
+    font-size: 7px;
+  }
+}

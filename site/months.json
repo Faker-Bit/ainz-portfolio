@@ -1,0 +1,158 @@
+{
+ "from": "2026-01-01",
+ "to": "2026-10-15",
+ "fetchedAt": "2026-10-15T23:38:33.401Z",
+ "scope": "GitHub-attributed public commit contributions per repository and month; not all contribution types or hours worked",
+ "months": [
+  {
+   "month": "2026-01",
+   "top": [
+    {
+     "repo": "waybar-themes",
+     "owner": "HANCORE-linux",
+     "commits": 433
+    },
+    {
+     "repo": "omarchy-oxocarbon-theme",
+     "owner": "HANCORE-linux",
+     "commits": 58
+    }
+   ]
+  },
+  {
+   "month": "2026-02",
+   "top": [
+    {
+     "repo": "waybar-themes",
+     "owner": "HANCORE-linux",
+     "commits": 101
+    },
+    {
+     "repo": "omarchy-harbordark-theme",
+     "owner": "HANCORE-linux",
+     "commits": 38
+    }
+   ]
+  },
+  {
+   "month": "2026-03",
+   "top": [
+    {
+     "repo": "waybar-themes",
+     "owner": "HANCORE-linux",
+     "commits": 207
+    },
+    {
+     "repo": "omarchy-turbonite-theme",
+     "owner": "HANCORE-linux",
+     "commits": 62
+    }
+   ]
+  },
+  {
+   "month": "2026-04",
+   "top": [
+    {
+     "repo": "waybar-themes",
+     "owner": "HANCORE-linux",
+     "commits": 186
+    },
+    {
+     "repo": "omarchy-saga-theme",
+     "owner": "HANCORE-linux",
+     "commits": 70
+    }
+   ]
+  },
+  {
+   "month": "2026-05",
+   "top": [
+    {
+     "repo": "waybar-themes",
+     "owner": "HANCORE-linux",
+     "commits": 240
+    },
+    {
+     "repo": "omarchy-kanso-theme",
+     "owner": "HANCORE-linux",
+     "commits": 68
+    }
+   ]
+  },
+  {
+   "month": "2026-06",
+   "top": [
+    {
+     "repo": "quickshell-dots",
+     "owner": "HANCORE-linux",
+     "commits": 428
+    },
+    {
+     "repo": "omarchy-dos-moos-theme",
+     "owner": "HANCORE-linux",
+     "commits": 19
+    }
+   ]
+  },
+  {
+   "month": "2026-07",
+   "top": [
+    {
+     "repo": "quickshell-dots",
+     "owner": "HANCORE-linux",
+     "commits": 110
+    },
+    {
+     "repo": "omarchy-plugin-marketplace",
+     "owner": "omacom",
+     "commits": 52
+    }
+   ]
+  },
+  {
+   "month": "2026-08",
+   "top": [
+    {
+     "repo": "Shibumi-Shell",
+     "owner": "HANCORE-linux",
+     "commits": 196
+    },
+    {
+     "repo": "OmaQ",
+     "owner": "HANCORE-linux",
+     "commits": 106
+    }
+   ]
+  },
+  {
+   "month": "2026-09",
+   "top": [
+    {
+     "repo": "Shibumi-Shell",
+     "owner": "HANCORE-linux",
+     "commits": 190
+    },
+    {
+     "repo": "OmaQ",
+     "owner": "HANCORE-linux",
+     "commits": 105
+    }
+   ]
+  },
+  {
+   "month": "2026-10",
+   "top": [
+    {
+     "repo": "Shibumi-Shell",
+     "owner": "HANCORE-linux",
+     "commits": 103
+    },
+    {
+     "repo": "OmaQ",
+     "owner": "HANCORE-linux",
+     "commits": 61
+    }
+   ]
+  }
+ ]
+}

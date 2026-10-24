@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 358" width="248" height="358">
+  <line x1="124" y1="0" x2="124" y2="24" stroke="#d0d7de" stroke-width="1.5"/>
+  <circle cx="124" cy="24" r="3" fill="#a855f7"/>
+  <rect x="4" y="24" width="240" height="328" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1.2"/>
+  <rect x="14" y="36" width="220" height="236" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+  <rect x="14" y="36" width="220" height="26" rx="6" fill="#eaeef2"/>
+  <circle cx="26" cy="49" r="3.5" fill="#ff5f56"/>
+  <circle cx="37" cy="49" r="3.5" fill="#ffbd2e"/>
+  <circle cx="48" cy="49" r="3.5" fill="#27c93f"/>
+  <text x="224" y="53" fill="#a855f7" font-family="ui-monospace, monospace" font-size="9.5" text-anchor="end">254 files · Live App</text>
+  <text x="22" y="88" fill="#1f2328" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="14">ZEXR</text>
+  <text x="22" y="124" fill="#24292f" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5">▸ Global verified trials &amp; credits</text>
+<text x="22" y="148" fill="#24292f" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5">▸ Celery + Redis auto-verifier</text>
+<text x="22" y="172" fill="#24292f" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5">▸ Country &amp; currency aware UI</text>
+<text x="22" y="196" fill="#24292f" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5">▸ SQLAlchemy 2.1 + Alembic + PG</text>
+<text x="22" y="220" fill="#24292f" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5">▸ Strict source provenance checks</text>
+<text x="22" y="244" fill="#24292f" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10.5">▸ Live on Vercel</text>
+  <text x="16" y="298" fill="#1f2328" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="15">ZEXR Deal Hub</text>
+  <text x="16" y="317" fill="#57606a" font-family="system-ui, -apple-system, sans-serif" font-size="12">zexr-black.vercel.app</text>
+  <text x="16" y="337" fill="#a855f7" font-family="ui-monospace, monospace" font-size="10.5">Next.js 16 · FastAPI · Celery</text>
+</svg>

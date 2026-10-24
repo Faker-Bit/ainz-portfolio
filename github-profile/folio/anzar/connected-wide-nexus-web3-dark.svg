@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 372 108" width="372" height="108">
+  <line x1="186" y1="0" x2="186" y2="18" stroke="#262b33" stroke-width="1.5"/>
+  <rect x="4" y="18" width="364" height="86" rx="7" fill="#0c0e12" stroke="#262b33" stroke-width="1.2"/>
+  <text x="20" y="46" fill="#ebe6db" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="14.5">NEXUS — Web3 &amp; WebGL Marketplace</text>
+  <text x="20" y="68" fill="#8b949e" font-family="ui-monospace, monospace" font-size="11">Next.js · TypeScript · WebGL · Prisma · 264 files</text>
+  <text x="20" y="89" fill="#00ff9d" font-family="ui-monospace, monospace" font-size="11">github.com/Faker-Bit/nexus →</text>
+</svg>

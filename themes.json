@@ -1,0 +1,558 @@
+{
+  "source": "Local GitHub profile asset snapshot",
+  "snapshot": "2026-09-16",
+  "themes": [
+    {
+      "slug": "alien",
+      "name": "Alien Xenomorph",
+      "repo": "omarchy-alien-theme",
+      "url": "https://github.com/Faker-Bit",
+      "description": "Bioluminescent extraterrestrial neon-green & cyber-cyan matrix theme with CR7 SIUUU telemetry.",
+      "light": false,
+      "included": true,
+      "image": "/site/assets/anzar/cr7-suii.svg",
+      "palette": [
+        "#020805",
+        "#00f0ff",
+        "#39ff14",
+        "#b026ff",
+        "#00ffd5",
+        "#7dff59",
+        "#00c8ff",
+        "#d8ffe2"
+      ]
+    },
+    {
+      "slug": "banish",
+      "name": "Banish",
+      "description": "Basalt, pink and cold ultraviolet",
+      "image": "/assets/themes/banish.webp",
+      "palette": [
+        "#0c0b0d",
+        "#ff4a78",
+        "#f2f2ea",
+        "#8F57FF",
+        "#6C70E0",
+        "#bd5cff",
+        "#53b1ca",
+        "#D8D1CC"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-banish-theme",
+      "included": false,
+      "source": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-banish-theme/HEAD/preview.png"
+    },
+    {
+      "slug": "batou",
+      "name": "Batou",
+      "description": "Graphite, bone and tactical contrast",
+      "image": "/assets/themes/batou.webp",
+      "palette": [
+        "#121212",
+        "#e19e74",
+        "#a5a297",
+        "#c6c4b0",
+        "#605d5b",
+        "#8a8575",
+        "#C2BBB0",
+        "#dbd9d3"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-batou-theme",
+      "included": false,
+      "source": "https://github.com/HANCORE-linux/omarchy-batou-theme"
+    },
+    {
+      "slug": "blackgold",
+      "name": "BlackGold",
+      "description": "Obsidian, gold and cinematic warmth",
+      "image": "/assets/themes/blackgold.webp",
+      "palette": [
+        "#0D0D0D",
+        "#D35F5F",
+        "#a3850e",
+        "#4D574E",
+        "#6E6A58",
+        "#BFA75D",
+        "#7A6A2C",
+        "#F6F1DD"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-blackgold-theme",
+      "included": false,
+      "source": "https://github.com/HANCORE-linux/omarchy-blackgold-theme"
+    },
+    {
+      "slug": "blackmoney",
+      "name": "BlackMoney",
+      "description": "Black, green and gold",
+      "image": "/assets/themes/blackmoney.webp",
+      "palette": [
+        "#0C0C0C",
+        "#dd5670",
+        "#2a593f",
+        "#525b54",
+        "#d8d4b4",
+        "#689e80",
+        "#88c6a3",
+        "#ece4d4"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-blackmoney-theme",
+      "included": false,
+      "source": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-blackmoney-theme/HEAD/preview.png"
+    },
+    {
+      "slug": "blackturq",
+      "name": "BlackTurq",
+      "description": "Anodized black, electric turquoise and high contrast",
+      "image": "/assets/themes/blackturq.webp",
+      "palette": [
+        "#0a0a0a",
+        "#D35F5F",
+        "#8FECD5",
+        "#A9D1D7",
+        "#ADF0E9",
+        "#485362",
+        "#5a676b",
+        "#c4d8e2"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-blackturq-theme",
+      "included": false,
+      "source": "https://github.com/HANCORE-linux/omarchy-blackturq-theme"
+    },
+    {
+      "slug": "demon",
+      "name": "Demon",
+      "description": "Charcoal, ember and aggressive contrast",
+      "image": "/assets/themes/demon.webp",
+      "palette": [
+        "#0F0F0F",
+        "#BB1C1C",
+        "#586259",
+        "#E24C00",
+        "#5C624B",
+        "#655E56",
+        "#7A7D80",
+        "#BDB5AA"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-demon-theme",
+      "included": false,
+      "source": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-demon-theme/HEAD/preview.png"
+    },
+    {
+      "slug": "dos-moos",
+      "name": "Dos-Moos",
+      "description": "Blue-green, charcoal and tactile color",
+      "image": "/assets/themes/dos-moos.webp",
+      "palette": [
+        "#131516",
+        "#F0334A",
+        "#819890",
+        "#F4E276",
+        "#A5B5AB",
+        "#72856C",
+        "#6d877d",
+        "#d5dbd7"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-dos-moos-theme",
+      "included": false,
+      "source": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-dos-moos-theme/HEAD/preview.png"
+    },
+    {
+      "slug": "greek-noir",
+      "name": "Greek Noir",
+      "description": "Charcoal, orange and editorial contrast",
+      "image": "/assets/themes/greek-noir.webp",
+      "palette": [
+        "#171717",
+        "#aeab94",
+        "#F25623",
+        "#757864",
+        "#88A57D",
+        "#F56E0F",
+        "#7b837b",
+        "#a6ada6"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-greek-noir-theme",
+      "included": false,
+      "source": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-greek-noir-theme/HEAD/preview.png"
+    },
+    {
+      "slug": "harbor",
+      "name": "Harbor",
+      "description": "Sage, paper and quiet Nordic tones",
+      "image": "/assets/themes/harbor.webp",
+      "palette": [
+        "#dfe4c4",
+        "#b14752",
+        "#556753",
+        "#dc8164",
+        "#4c6c94",
+        "#8a5b81",
+        "#3d727d",
+        "#384f54"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-harbor-theme",
+      "included": false,
+      "source": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-harbor-theme/HEAD/preview.png"
+    },
+    {
+      "slug": "harbordark",
+      "name": "Harbor Dark",
+      "description": "Charcoal, red and industrial contrast",
+      "image": "/assets/themes/harbordark.webp",
+      "palette": [
+        "#1B1B1B",
+        "#F44336",
+        "#e75a50",
+        "#a99b7a",
+        "#e58980",
+        "#77838a",
+        "#6d6d6d",
+        "#E1CE98"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-harbordark-theme",
+      "included": false,
+      "source": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-harbordark-theme/HEAD/preview.png"
+    },
+    {
+      "slug": "inkypinky",
+      "name": "InkyPinky",
+      "description": "Ink, violet and soft contrast",
+      "image": "/assets/themes/inkypinky.webp",
+      "palette": [
+        "#13131D",
+        "#EA90A8",
+        "#a6b2c7",
+        "#D18BA2",
+        "#7c7ca8",
+        "#9f859f",
+        "#919ab7",
+        "#a1a2a7"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-inkypinky-theme",
+      "included": false,
+      "source": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-inkypinky-theme/HEAD/preview.png"
+    },
+    {
+      "slug": "kanso",
+      "name": "Kansō",
+      "description": "Forest, charcoal and restraint",
+      "image": "/assets/themes/kanso.webp",
+      "palette": [
+        "#090E13",
+        "#c4746e",
+        "#8a9a7b",
+        "#c4b28a",
+        "#8ba4b0",
+        "#a292a3",
+        "#8ea4a2",
+        "#c8c093"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-kanso-theme",
+      "included": false,
+      "source": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-kanso-theme/HEAD/preview.png"
+    },
+    {
+      "slug": "labra",
+      "name": "Labra",
+      "description": "Just Labra",
+      "image": "/assets/themes/labra.webp",
+      "palette": [
+        "#040704",
+        "#ee585d",
+        "#747f11",
+        "#d3dd2c",
+        "#e33d84",
+        "#d54a8e",
+        "#7d7a56",
+        "#D3D7B5"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-labra-theme",
+      "included": false,
+      "source": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-labra-theme/HEAD/preview.png"
+    },
+    {
+      "slug": "lasthorizon",
+      "name": "Last Horizon",
+      "description": "Charcoal, warm skin tones and cinematic light",
+      "image": "/assets/themes/lasthorizon.webp",
+      "palette": [
+        "#0c0b0c",
+        "#c38b7b",
+        "#87a9b0",
+        "#6B5E73",
+        "#b59790",
+        "#c4d8e2",
+        "#a5a0b6",
+        "#cfd3cd"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-lasthorizon-theme",
+      "included": true,
+      "source": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-lasthorizon-theme/v2.0.0/preview.png"
+    },
+    {
+      "slug": "mechanoonna",
+      "name": "Mecha no Onna",
+      "description": "Ink, ivory and illustrated detail",
+      "image": "/assets/themes/mechanoonna.webp",
+      "palette": [
+        "#1c1b19",
+        "#c5564a",
+        "#a89984",
+        "#ebdbb2",
+        "#908d88",
+        "#afa499",
+        "#d4bd99",
+        "#fbf1c7"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-mechanoonna-theme",
+      "included": false,
+      "source": "https://github.com/HANCORE-linux/omarchy-mechanoonna-theme"
+    },
+    {
+      "slug": "moodpeak",
+      "name": "Moodpeak",
+      "description": "Cobalt, violet and nocturnal color",
+      "image": "/assets/themes/moodpeak.webp",
+      "palette": [
+        "#181c22",
+        "#ff7b92",
+        "#4ecdc4",
+        "#82eeff",
+        "#6a85ff",
+        "#b388eb",
+        "#c9aff0",
+        "#d1d7e0"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-moodpeak-theme",
+      "included": false,
+      "source": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-moodpeak-theme/HEAD/preview.png"
+    },
+    {
+      "slug": "oxford",
+      "name": "Oxford",
+      "description": "Wood, navy and muted collegiate tones",
+      "image": "/assets/themes/oxford.webp",
+      "palette": [
+        "#292b31",
+        "#dd5544",
+        "#76856a",
+        "#f3e9bd",
+        "#bda07f",
+        "#b7a593",
+        "#9b907f",
+        "#ffffff"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-oxford-theme",
+      "included": false,
+      "source": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-oxford-theme/HEAD/preview.png"
+    },
+    {
+      "slug": "oxocarbon",
+      "name": "Oxocarbon",
+      "description": "Black, cyan and technical color",
+      "image": "/assets/themes/oxocarbon.webp",
+      "palette": [
+        "#161616",
+        "#3ddbd9",
+        "#33b1ff",
+        "#ee5396",
+        "#42be65",
+        "#be95ff",
+        "#ff7eb6",
+        "#f2f4f8"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-oxocarbon-theme",
+      "included": false,
+      "source": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-oxocarbon-theme/HEAD/preview.png"
+    },
+    {
+      "slug": "roseofdune",
+      "name": "Rose of Dune",
+      "description": "Blush, sand and a light interface",
+      "image": "/assets/themes/roseofdune.webp",
+      "palette": [
+        "#F5E6D3",
+        "#a02b16",
+        "#9e4f5b",
+        "#644535",
+        "#76634c",
+        "#78292e",
+        "#713a56",
+        "#a94a34"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-roseofdune-theme",
+      "included": false,
+      "source": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-roseofdune-theme/HEAD/preview.png"
+    },
+    {
+      "slug": "ryu",
+      "name": "Ryū",
+      "description": "Ivory, ink and mythic intensity",
+      "image": "/assets/themes/ryu.webp",
+      "palette": [
+        "#050505",
+        "#da614e",
+        "#8B9388",
+        "#51605b",
+        "#75897F",
+        "#C2A46D",
+        "#717C7C",
+        "#D6D0C5"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-ryu-theme",
+      "included": false,
+      "source": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-ryu-theme/HEAD/preview.png"
+    },
+    {
+      "slug": "saga",
+      "name": "Saga",
+      "description": "Slate, pastel and expansive color",
+      "image": "/assets/themes/saga.webp",
+      "palette": [
+        "#05080a",
+        "#ff9fbc",
+        "#baf7b5",
+        "#fff6c3",
+        "#b2fff3",
+        "#dfbaff",
+        "#ffc79b",
+        "#f3ceff"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-saga-theme",
+      "included": false,
+      "source": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-saga-theme/HEAD/preview.png"
+    },
+    {
+      "slug": "sapphire",
+      "name": "Sapphire",
+      "description": "Midnight, electric blue and crystalline accents",
+      "image": "/assets/themes/sapphire.webp",
+      "palette": [
+        "#060d1f",
+        "#e95c4b",
+        "#6488EA",
+        "#d5edeb",
+        "#f7c3c6",
+        "#85cec4",
+        "#fff6d2",
+        "#e1e9f5"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-sapphire-theme",
+      "included": false,
+      "source": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-sapphire-theme/HEAD/preview.png"
+    },
+    {
+      "slug": "shadesofjade",
+      "name": "Shades of Jade",
+      "description": "Deep green, jade and sculptural color",
+      "image": "/assets/themes/shadesofjade.webp",
+      "palette": [
+        "#00110b",
+        "#ff3370",
+        "#00a86b",
+        "#D1FFb0",
+        "#FF6600",
+        "#8fc85c",
+        "#80d4b5",
+        "#FFF7F2"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-shadesofjade-theme",
+      "included": false,
+      "source": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-shadesofjade-theme/HEAD/preview.png"
+    },
+    {
+      "slug": "solitude",
+      "name": "Solitude",
+      "description": "Monochrome, ink and minimal contrast",
+      "image": "/assets/themes/solitude.webp",
+      "palette": [
+        "#101315",
+        "#565d60",
+        "#9fa5a9",
+        "#d9dbdc",
+        "#798186",
+        "#aeaeae",
+        "#707070",
+        "#cbc2be"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-solitude-theme",
+      "included": true,
+      "source": "https://github.com/HANCORE-linux/omarchy-solitude-theme"
+    },
+    {
+      "slug": "thegreek",
+      "name": "The Greek",
+      "description": "Parchment, olive and architectural restraint",
+      "image": "/assets/themes/thegreek.webp",
+      "palette": [
+        "#d0d0c8",
+        "#db0030",
+        "#2e3125",
+        "#51573b",
+        "#DE6A41",
+        "#43432b",
+        "#6b1f2f",
+        "#383835"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-thegreek-theme",
+      "included": false,
+      "source": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-thegreek-theme/HEAD/preview.png"
+    },
+    {
+      "slug": "turbonite",
+      "name": "Turbonite",
+      "description": "Black, amber and automotive influence",
+      "image": "/assets/themes/turbonite.webp",
+      "palette": [
+        "#0B0C0C",
+        "#f24331",
+        "#6E6A64",
+        "#ed9a1d",
+        "#847B4E",
+        "#A7A483",
+        "#EBD698",
+        "#CAC8C4"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-turbonite-theme",
+      "included": false,
+      "source": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-turbonite-theme/HEAD/preview.png"
+    },
+    {
+      "slug": "velvetnight",
+      "name": "Velvet Night",
+      "description": "Navy, mauve and dense nocturnal color",
+      "image": "/assets/themes/velvetnight.webp",
+      "palette": [
+        "#0A101F",
+        "#811139",
+        "#5C637A",
+        "#e5af1b",
+        "#9099a5",
+        "#e2687c",
+        "#C24F40",
+        "#F5ECDF"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-velvetnight-theme",
+      "included": false,
+      "source": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-velvetnight-theme/HEAD/preview.png"
+    },
+    {
+      "slug": "whitegold",
+      "name": "White Gold",
+      "description": "Ivory, brass and a light interface",
+      "image": "/assets/themes/whitegold.webp",
+      "palette": [
+        "#DEDBC8",
+        "#4B0304",
+        "#725c0a",
+        "#2E311A",
+        "#005C32",
+        "#762b2f",
+        "#3B3B3B",
+        "#665e4a"
+      ],
+      "repo": "https://github.com/HANCORE-linux/omarchy-whitegold-theme",
+      "included": false,
+      "source": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-whitegold-theme/HEAD/preview.png"
+    }
+  ]
+}

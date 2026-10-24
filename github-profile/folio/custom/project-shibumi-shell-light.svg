@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 164" width="248" height="164">
+  <rect x="1" y="1" width="246" height="162" rx="6" fill="#ffffff" stroke="#d0d7de" stroke-width="1.2"/>
+  <rect x="1" y="1" width="246" height="28" rx="6" fill="#f6f8fa"/>
+  <circle cx="15" cy="15" r="3.5" fill="#d0d7de"/>
+  <circle cx="27" cy="15" r="3.5" fill="#d0d7de"/>
+  <text x="42" y="19" fill="#57606a" font-family="ui-monospace, monospace" font-size="10">QML</text>
+  <text x="234" y="19" fill="#0969da" font-family="ui-monospace, monospace" font-size="10.5" text-anchor="end">★ 412</text>
+  <text x="16" y="58" fill="#1f2328" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="15">Shibumi-Shell</text>
+  <text x="16" y="80" fill="#57606a" font-family="ui-monospace, monospace" font-size="10.5">Native bar and plugin suite for </text>
+  <text x="16" y="106" fill="#57606a" font-family="system-ui, -apple-system, sans-serif" font-size="11.5">A native, modular shell, bar, and ...</text>
+  <text x="16" y="144" fill="#0969da" font-family="ui-monospace, monospace" font-size="10">HANCORE-linux/Shibumi-Shell →</text>
+</svg>

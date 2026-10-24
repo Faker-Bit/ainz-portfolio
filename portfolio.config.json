@@ -1,0 +1,96 @@
+{
+  "identity": {
+    "name": "HANCORE",
+    "domain": "hancore.dev",
+    "handle": "HANCORE-linux",
+    "barTitle": "HANCORE-LINUX",
+    "tagline": "// engineering with feeling.",
+    "subtitle": "Linux themes & interfaces.",
+    "defaultTheme": "blackmoney",
+    "bootCommand": "nvim ~/Projects",
+    "introMessages": [
+      ["i build", "the things", "i want to use."],
+      ["and make them", "feel like somewhere", "i want to be."]
+    ]
+  },
+  "bio": [
+    "Mechanical engineer by trade, with a love for design and development.",
+    "Curious about technology, full of ideas, and building for the Omarchy community."
+  ],
+  "roles": [
+    { "label": "Core team member", "href": "https://omarchy.org/teams/" },
+    { "label": "Artist in Residence", "href": "https://omarchy.org/air/" }
+  ],
+  "links": [
+    { "name": "github", "label": "GitHub", "url": "https://github.com/HANCORE-linux" },
+    { "name": "discord", "label": "Discord", "url": "https://discord.com/users/816417588610334741" },
+    { "name": "x", "label": "X", "url": "https://x.com/hancore_linux" },
+    { "name": "ko-fi", "label": "Ko-fi", "url": "https://ko-fi.com/hancore" },
+    { "name": "buymeacoffee", "label": "Buy Me a Coffee", "url": "https://buymeacoffee.com/hancore" }
+  ],
+  "stats": {
+    "followers": 298,
+    "totalStars": 2538,
+    "ownStars": 2274,
+    "marketplaceStars": 264,
+    "repositoryCount": 37,
+    "contributionsTotal": 4128
+  },
+  "featuredProjects": [
+    {
+      "repo": "Shibumi-Shell",
+      "title": "Shibumi-Shell",
+      "subtitle": "Native bar and plugin suite for Omarchy",
+      "description": "A native, modular shell, bar, and plugin suite crafted for Omarchy Quattro.",
+      "language": "QML",
+      "license": "MIT",
+      "stars": 412,
+      "forks": 28,
+      "url": "https://github.com/HANCORE-linux/Shibumi-Shell"
+    },
+    {
+      "repo": "OmaQ",
+      "title": "OmaQ",
+      "subtitle": "Encrypted chat & ratchet protocol for Omarchy",
+      "description": "Lightweight terminal-native encrypted messaging client and C ratchet helper for Omarchy.",
+      "language": "C / QML",
+      "license": "MIT",
+      "stars": 289,
+      "forks": 19,
+      "url": "https://github.com/HANCORE-linux/OmaQ"
+    },
+    {
+      "repo": "omarchy-plugin-marketplace",
+      "title": "Plugin Marketplace",
+      "subtitle": "Official Omarchy plugin registry & UI",
+      "description": "Discover, preview, and install community plugins and themes directly in Omarchy.",
+      "language": "Shell / QML",
+      "license": "MIT",
+      "stars": 264,
+      "forks": 24,
+      "url": "https://github.com/omacom/omarchy-plugin-marketplace"
+    },
+    {
+      "repo": "waybar-themes",
+      "title": "Waybar Themes",
+      "subtitle": "For the bar.",
+      "description": "Curated collection of minimal, modular Waybar configurations for Hyprland & Omarchy.",
+      "language": "CSS",
+      "license": "MIT",
+      "stars": 645,
+      "forks": 52,
+      "url": "https://github.com/HANCORE-linux/waybar-themes"
+    },
+    {
+      "repo": "quickshell-dots",
+      "title": "QS-Dots / Rise",
+      "subtitle": "For the shell.",
+      "description": "Quickshell Rise — custom QML desktop bar, media carousel, and particle widgets.",
+      "language": "QML",
+      "license": "MIT",
+      "stars": 380,
+      "forks": 31,
+      "url": "https://github.com/HANCORE-linux/quickshell-dots"
+    }
+  ]
+}

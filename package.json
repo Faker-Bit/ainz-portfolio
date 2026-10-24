@@ -1,0 +1,11 @@
+{
+  "name": "ainz-portfolio",
+  "version": "1.0.0",
+  "description": "anzar.dev — Alien Bioluminescent Code-Wall Intro, Neovim Portfolio IDE, & Live Animated Cristiano Ronaldo CR7 SIUUUUU! Braille ASCII Engine",
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "dev": "node scripts/serve.mjs",
+    "customize": "node scripts/customize.mjs"
+  }
+}
